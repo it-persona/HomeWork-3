@@ -1,0 +1,8 @@
+# Ignored folders
+# ------------------
+.idea
+vendor
+
+# Ignored files
+# ----------------
+*~

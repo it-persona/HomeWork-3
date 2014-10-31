@@ -1,0 +1,9 @@
+{
+    "require": {
+        "symfony/http-foundation": "2.6.*@dev",
+        "phroute/phroute": "1.*"
+    },
+    "autoload": {
+        "psr-0": {"Panchenko": "src/"}
+    }
+}
