@@ -9,10 +9,16 @@ use Panchenko\Model\HorseClass;
 class AnimalController
 {
     private $sey;
+    protected $twig;
+
+    public function __construct(\Twig_Environment $twig)
+    {
+        $this->twig = $twig;
+    }
 
     public function getAnimalsAction()
     {
-        return new Response('<h1>Animals page</h1>What animal you are interested in <a href="animals/dog">King bulldog</a> or Horse <a href="animals/horse">Mustang</a>');
+        return new Response($this->twig->render('animals.html.twig'));
     }
 
     public function getAnimalAction($animalId)
