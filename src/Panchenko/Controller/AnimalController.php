@@ -12,7 +12,7 @@ class AnimalController
 
     public function getAnimalsAction()
     {
-        return new Response('<h1>Animals page</h1>What animal you are interested in <a href="/animals/dog">King bulldog</a> or Horse <a href="/animals/horse">Mustang</a>');
+        return new Response('<h1>Animals page</h1>What animal you are interested in <a href="animals/dog">King bulldog</a> or Horse <a href="animals/horse">Mustang</a>');
     }
 
     public function getAnimalAction($animalId)
@@ -23,6 +23,9 @@ class AnimalController
                 $animal->setAnimalSpecies('King bulldog');
                 $animal->setAnimalEyesColor('Dark brown');
                 $animal->setAnimalWool('Short');
+                $tail = $animal->setAnimalTail(70);
+                $weight = $animal->setAnimalWeight(60);
+                $check = $animal->checkAnimal($tail, $weight);
                 $this->sey = $animal->animalSay('Woof-Woof!');
                 break;
             case 'horse':
@@ -30,10 +33,14 @@ class AnimalController
                 $animal->setAnimalSpecies('Mustang');
                 $animal->setAnimalEyesColor('Black');
                 $animal->setAnimalWool('Short');
+                $tail = $animal->setAnimalTail('test');
+                $weight = $animal->setAnimalWeight(160);
+                $check = $animal->checkAnimal($tail, $weight);
+                $this->sey = $animal->animalSay('Igo-Go!');
                 break;
             default:
                 return new Response(sprintf('<h1 style="color: red">Error:</h1><p style="color: red">Method not found for animal <b>"%s"</b></p>', $animalId));
         }
-        return new Response('<h1>' . $animal->getAnimal() . ' object info:</h1><hr>' . $animal . '<br><hr>');
+        return new Response('<h1>' . $animal->getAnimal() . ' object info:</h1><hr>' . $animal . '<br>' . $check .'<hr>');
     }
 }

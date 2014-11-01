@@ -37,8 +37,8 @@ class DoggyClass extends AbstractAnimals implements AnimalsInterface
             } else {
                 $arrMsg[1] = "Normal tail!";
             }
-                return $msg = implode("<br>", $arrMsg);
+            return $msg = implode("<br>", $arrMsg);
         }
-            return $msg = "Congratulations! Tail and weight values - normal.";
+        return $msg = "Congratulations! Tail and weight values - normal.";
     }
 }

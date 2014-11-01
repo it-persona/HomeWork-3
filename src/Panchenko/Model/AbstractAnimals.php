@@ -2,6 +2,8 @@
 
 namespace Panchenko\Model;
 
+use Exception;
+
 abstract class AbstractAnimals
 {
     public $animal;
@@ -41,8 +43,7 @@ abstract class AbstractAnimals
     public function setAnimalTail($tailLength)
     {
         if (!is_int($tailLength)) {
-            echo "<b style='color: red'>" . "Error: Variable $tailLength not integer type." . "</b>";
-            
+            echo '<b style="color: red">' . 'Error: Variable $tailLength not integer type</b>';
         } else {
             $this->tail = $tailLength;
         }
