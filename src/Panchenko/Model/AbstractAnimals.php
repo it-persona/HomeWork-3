@@ -14,6 +14,18 @@ abstract class AbstractAnimals
 
     abstract protected function checkAnimal($tailValue, $weightValue);
 
+    public function __toString()
+    {
+        $animalInfo = array('species'       =>  empty($this->species) ? 'undefined' : $this->species,
+                            'eyes'          =>  empty($this->eyes)    ? 'undefined' : $this->eyes,
+                            'tail_length'   =>  empty($this->tail)    ? 0           : $this->tail,
+                            'weight_value'  =>  empty($this->weight)  ? 0           : $this->weight,
+                            'body_type'     =>  empty($this->body)    ? 'undefined' : $this->body,
+                            'wool_length'   =>  empty($this->wool)    ? 'undefined' : $this->wool
+                            );
+
+        return implode("<br>", $animalInfo);
+    }
     // Setters
 
     public function setAnimalEyesColor($eyesColor)

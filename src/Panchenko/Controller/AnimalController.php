@@ -8,9 +8,11 @@ use Panchenko\Model\HorseClass;
 
 class AnimalController
 {
+    private $sey;
+
     public function getAnimalsAction()
     {
-        return new Response('Return animals...');
+        return new Response('<h1>Animals page</h1>What animal you are interested in <a href="/animals/dog">King bulldog</a> or Horse <a href="/animals/horse">Mustang</a>');
     }
 
     public function getAnimalAction($animalId)
@@ -21,6 +23,7 @@ class AnimalController
                 $animal->setAnimalSpecies('King bulldog');
                 $animal->setAnimalEyesColor('Dark brown');
                 $animal->setAnimalWool('Short');
+                $this->sey = $animal->animalSay('Woof-Woof!');
                 break;
             case 'horse':
                 $animal = new HorseClass();
@@ -29,8 +32,8 @@ class AnimalController
                 $animal->setAnimalWool('Short');
                 break;
             default:
-                return new Response(sprintf('<p style="color: red">Error: Method not found for animal "%s"</p>', $animalId));
+                return new Response(sprintf('<h1 style="color: red">Error:</h1><p style="color: red">Method not found for animal <b>"%s"</b></p>', $animalId));
         }
-        return new Response(var_dump($animal));
+        return new Response('<h1>' . $animal->getAnimal() . ' object info:</h1><hr>' . $animal . '<br><hr>');
     }
 } 

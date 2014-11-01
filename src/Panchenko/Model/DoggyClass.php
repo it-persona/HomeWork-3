@@ -6,6 +6,7 @@ class DoggyClass extends AbstractAnimals implements AnimalsInterface
 {
     private $maxTail;
     private $maxWeight;
+    private $dogInfo;
 
     public function __construct()
     {
@@ -13,6 +14,16 @@ class DoggyClass extends AbstractAnimals implements AnimalsInterface
         $this->maxWeight    = 70;
         $this->maxTail      = 60;
     }
+
+//    public function __toString()
+//    {
+//        $dogInfo = array('Animal tail length'   =>  $this->tail,
+//                         'Animal weight'        =>  $this->weight,
+//                         'Animal body'          =>  $this->body
+//                        );
+//
+//        return implode('<br>', $dogInfo);
+//    }
 
     public function animalSay($voice)
     {
