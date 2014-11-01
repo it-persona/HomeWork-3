@@ -36,4 +36,4 @@ class AnimalController
         }
         return new Response('<h1>' . $animal->getAnimal() . ' object info:</h1><hr>' . $animal . '<br><hr>');
     }
-} 
+}
