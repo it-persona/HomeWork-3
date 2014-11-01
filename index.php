@@ -3,6 +3,7 @@
 require_once 'vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Phroute\RouteCollector;
 use Panchenko\Controller\AnimalController;
 use Panchenko\Controller\IndexController;
@@ -23,10 +24,9 @@ $dispatcher = new Phroute\Dispatcher($router);
 try {
     $response = $dispatcher->dispatch($request->getMethod(), parse_url($request->getPathInfo(), PHP_URL_PATH));
 } catch (Phroute\Exception\HttpRouteNotFoundException $e) {
-    print('<b style="color: red">Error 404: Page not found</b>');
-    die();
+    $response = new Response('<b style="color: red">Error 404: Page not found</b>', 404);
 } catch (Phroute\Exception\HttpMethodNotAllowedException $e) {
-    var_dump($e);
-    die();
+    $response = new Response('<b style="color: red">Error 405: Url was matched but this method not allowed</b>', 405);
 }
+
 $response->send();
