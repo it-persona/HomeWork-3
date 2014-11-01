@@ -69,4 +69,24 @@ abstract class AbstractAnimals
     {
         return $this->animal;
     }
+
+    public function getSpecies()
+    {
+        return $this->species;
+    }
+
+    public function getWool()
+    {
+        return $this->wool;
+    }
+
+    public function getTail()
+    {
+        return $this->tail;
+    }
+
+    public function getWeight()
+    {
+        return $this->weight;
+    }
 }
