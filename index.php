@@ -10,8 +10,11 @@ use Panchenko\Controller\IndexController;
 
 $request = Request::createFromGlobals();
 
+$loader = new Twig_Loader_Filesystem(__DIR__ . '/app/views');
+$twig = new Twig_Environment($loader);
+
 $animalController = new AnimalController();
-$indexController = new IndexController();
+$indexController = new IndexController($twig);
 
 $router = new RouteCollector();
 

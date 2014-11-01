@@ -7,8 +7,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class IndexController
 {
+    protected $twig;
+
+    public function __construct(\Twig_Environment $twig)
+    {
+        $this->twig = $twig;
+    }
+
     public function indexAction()
     {
-        return new Response('<h1>Homepage</h1>Hello world!');
+        return new Response($this->twig->render('index.html.twig'));
     }
 }
