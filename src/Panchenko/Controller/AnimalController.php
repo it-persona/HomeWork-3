@@ -6,15 +6,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Panchenko\Model\DoggyClass;
 use Panchenko\Model\HorseClass;
 
-class AnimalController
+class AnimalController extends AbstractController
 {
     private $sey;
-    protected $twig;
+//    protected $twig;
 
-    public function __construct(\Twig_Environment $twig)
-    {
-        $this->twig = $twig;
-    }
+//    public function __construct(\Twig_Environment $twig)
+//    {
+//        $this->twig = $twig;
+//    }
 
     public function getAnimalsAction()
     {
@@ -47,6 +47,7 @@ class AnimalController
             default:
                 return new Response(sprintf('<h1 style="color: red">Error:</h1><p style="color: red">Method not found for animal <b>"%s"</b></p>', $animalId));
         }
-        return new Response('<h1>' . $animal->getAnimal() . ' object info:</h1><hr>' . $animal . '<br>' . $check .'<hr>');
+//        return new Response('<h1>' . $animal->getAnimal() . ' object info:</h1><hr>' . $animal . '<br>' . $check .'<hr>');
+        return new Response($this->twig->render('animal.html.twig', array('animal' => $animal)) . '<br>' . 'Animal sey: ' . $this->sey . '<br><br>' . $check);
     }
 }

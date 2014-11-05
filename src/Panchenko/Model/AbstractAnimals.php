@@ -2,8 +2,6 @@
 
 namespace Panchenko\Model;
 
-use Exception;
-
 abstract class AbstractAnimals
 {
     public $animal;
@@ -26,7 +24,7 @@ abstract class AbstractAnimals
                             'wool_length'   =>  empty($this->wool)    ? 'undefined' : $this->wool
                             );
 
-        return implode("<br>", $animalInfo);
+        return implode('<br>', $animalInfo);
     }
     // Setters
 
@@ -53,10 +51,10 @@ abstract class AbstractAnimals
     public function setAnimalWeight($setWeight)
     {
         if (!is_int($setWeight)) {
-            echo "<b style='color: red'>" . "Error: Variable $setWeight not integer type." . "</b>";
+            echo '<b style="color: red">' . 'Error: Variable ' . $setWeight . 'not integer type</b>';
         }
         $this->weight = $setWeight;
-        $setWeight  > 65 ? $this->body = "Big" : $this->body = "Normal";
+        $setWeight  > 65 ? $this->body = 'Big' : $this->body = 'Normal';
         return $setWeight;
     }
 
@@ -70,5 +68,25 @@ abstract class AbstractAnimals
     public function getAnimal()
     {
         return $this->animal;
+    }
+
+    public function getSpecies()
+    {
+        return $this->species;
+    }
+
+    public function getWool()
+    {
+        return $this->wool;
+    }
+
+    public function getTail()
+    {
+        return $this->tail;
+    }
+
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }
