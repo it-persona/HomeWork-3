@@ -10,7 +10,6 @@ class AppKernel extends Kernel
             ['GET', '/', 'Panchenko\Controller\IndexController:indexAction'],
             ['GET', '/animals', 'Panchenko\Controller\AnimalController:getAnimalsAction'],
             ['GET', '/animals/{animalId}', 'Panchenko\Controller\AnimalController:getAnimalAction'],
-//            [404, '', 'Panchenko\Controller\Error404Controller:errorAction'],
         );
     }
 
@@ -21,4 +20,4 @@ class AppKernel extends Kernel
 
         return $twig;
     }
-} 
+}
