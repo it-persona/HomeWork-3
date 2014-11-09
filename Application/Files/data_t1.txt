@@ -1,0 +1,2 @@
+Text entered to INPUT=Text entered to TEXTAREA
+test1=test2
